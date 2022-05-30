@@ -24,13 +24,12 @@ TO-DO: linker errors out with the `.rodata` ELF section (`-fPIE` / `-no-pie` doe
 Download precompiled binaries for LLVM and Clang 13.0.1-3 from the following link:
 https://repo.msys2.org/mingw/mingw64/
 
-After clone:
-
 ```
+pacman -S cmake make git
+git clone https://github.com/GDhex12/DestructiveC.git
 pacman -U mingw-w64-x86_64-clang-13.0.1-3-any.pkg.tar.zst
 pacman -U mingw-w64-x86_64-llvm-13.0.1-3-any.pkg.tar.zst
-pacman -S cmake make
-cd Komanda && mkdir build && cd build
+cd DestructiveC && mkdir build && cd build
 cmake -DCMAKE_C_COMPILER=/mingw64/bin/clang.exe -DCMAKE_CXX_COMPILER=/mingw64/bin/clang++.exe ..
 ```
 
