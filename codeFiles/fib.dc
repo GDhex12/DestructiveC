@@ -1,0 +1,49 @@
+define fun void printint(inte n);
+define fun inte Sum(inte a, inte b);
+
+fun inte FibRecursive(inte n)
+{
+    assume(n == 0)
+    {
+        return 0;
+    }
+    assume(n == 1)
+    {
+        return 1;
+    }
+    return FibRecursive(n - 1) + FibRecursive(n - 2);
+}
+
+fun inte FibIterative(inte n)
+{
+    inte ppn = 0;
+    inte pn = 0;
+    inte current = 1;
+
+    loopFor(inte i = 1; i < n; i = i + 1)
+    {
+        ppn = pn;
+        pn = current;
+        current = ppn + pn;
+    }
+
+    return current;
+}
+
+
+
+fun void start(){
+    inte recursive = FibRecursive(7);
+    printint(recursive);
+
+    inte iterative = FibIterative(7);
+    printint(iterative);
+    
+    ~inte a = 10;
+    inte b = 5;
+    printint(a);
+    inte c = Sum(a, b);
+	printint(c);
+	printint(a);
+    return;
+}
